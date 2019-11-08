@@ -1,9 +1,14 @@
 import React from 'react';
 import './App.css';
+import ExpenseTracker from './ExpenseTracker';
 
 function App() {
   return (
-    <h1>Hello, World!</h1>
+    <>
+    <ExpenseTracker />
+    <input type="text" />
+    <button>Add Expense</button>
+    </>
   );
 }
 
