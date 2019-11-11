@@ -3,6 +3,7 @@ import ExpenseName from './expense-form/ExpenseName'
 import ExpenseType from './expense-form/ExpenseType'
 import ExpenseDate from './expense-form/ExpenseDate'
 import ExpenseAmount from './expense-form/ExpenseAmount'
+import ExpenseTable from './ExpenseTable'
 
 export default function ExpenseForm() {
     return (
@@ -16,10 +17,16 @@ export default function ExpenseForm() {
               <ExpenseDate />
               <ExpenseAmount />
               <div>
-                <button className="btn btn-dark btn-block border-secondary" type="submit">Add Expense</button>
+                <button
+                  className="btn btn-dark btn-block border-secondary"
+                  type="submit"
+                >
+                  Add Expense
+                </button>
               </div>
             </div>
           </div>
+        <ExpenseTable />
         </div>
       </div>
     );
