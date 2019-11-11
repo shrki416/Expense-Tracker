@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
-import ExpenseTracker from './ExpenseTracker';
 import ExpenseForm from './ExpenseForm';
-import Navbar from './Navbar';
+import Header from './Header';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <ExpenseTracker />
+      <Header />
       <ExpenseForm />
     </>
   );
