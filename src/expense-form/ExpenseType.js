@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function ExpenseType() {
+export class ExpenseType extends Component {
+  render() {
     return (
       <div>
-        <div className="card-body">
+         <div className="card-body">
             <label>Transaction Type:</label>
             <div className="dropdown">
               <button
@@ -25,5 +26,8 @@ export default function ExpenseType() {
             </div>
         </div>
       </div>
-    );
+    )
+  }
 }
+
+export default ExpenseType
