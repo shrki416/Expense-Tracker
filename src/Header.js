@@ -1,14 +1,16 @@
 import React from 'react';
+import { Jumbotron, Container } from 'react-bootstrap'
 
 class Header extends React.Component {
   render() {
     return (
-      <div className="jumbotron jumbotron-fluid">
-        <div className="container">
-          <h1 className="text-dark">Expense Tracker</h1>
-          <p className="text-dark">A simple expense tracker application</p>
-        </div>
-      </div>
+      <Jumbotron fluid>
+        <Container>
+          <h1>Expense Tracker</h1>
+          <p>A simple expense tracker application</p>
+        </Container>
+      </Jumbotron>
+
     )
   }
 }

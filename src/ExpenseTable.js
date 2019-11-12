@@ -1,22 +1,23 @@
 import React from 'react'
 import ExpenseItem from './expense-form/ExpenseItem'
+import { Table } from 'react-bootstrap'
 
 export default function ExpenseTable() {
     return (
       <div className="col-8">
-        <table className="table table-sm table-striped table-hover table-dark">
+        <Table size="sm" striped bordered hover variant="dark">
           <thead>
             <tr>
-              <th scope="col">Type</th>
-              <th scope="col">Name</th>
-              <th scope="col">Date</th>
-              <th scope="col">Amount</th>
+              <th>Type</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Amount</th>
             </tr>
           </thead>
           <ExpenseItem />
           <ExpenseItem />
           <ExpenseItem />
-        </table>
+        </Table>
       </div>
     );
 }

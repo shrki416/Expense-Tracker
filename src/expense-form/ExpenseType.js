@@ -10,9 +10,9 @@ export class ExpenseType extends Component {
               id="dropdown-item-button" 
               title="Transaction Type" 
               variant="secondary">
-            <Dropdown.Item as="button">Cash</Dropdown.Item>
-            <Dropdown.Item as="button">Card</Dropdown.Item>
-            <Dropdown.Item as="button">Other</Dropdown.Item>
+            <Dropdown.Item>Cash</Dropdown.Item>
+            <Dropdown.Item>Card</Dropdown.Item>
+            <Dropdown.Item>Other</Dropdown.Item>
           </DropdownButton>
         </div>
       </div>

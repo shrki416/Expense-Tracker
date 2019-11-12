@@ -12,3 +12,7 @@ label, th, td {
     color: #8395a7;
     font-size: 1.5rem;
 }
+
+h1, p {
+    color: #353b48;
+}
