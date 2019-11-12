@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { InputGroup, FormControl} from 'react-bootstrap'
 
 export class ExpenseAmount extends Component {
   constructor(props) {
@@ -20,18 +21,16 @@ export class ExpenseAmount extends Component {
       <div>
         <div className="card-body">
           <div className="form-group">
-            <label>Expense Amount:</label>
-            <input 
-              value={this.state.expenseAmount}
-              onChange={this.handleAmountChange}
-              type="text"
-              className="form-control"
-              placeholder="Your Expense Amount Goes Here">
-            </input>
+            <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text>$</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl value={this.state.expenseAmount} onChange={this.handleAmountChange} placeholder="Your Expense Goes Here" aria-label="Amount" />
+            </InputGroup>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
