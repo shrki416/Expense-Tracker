@@ -18,11 +18,11 @@ export class ExpenseDate extends Component {
   render() {
     return (
       <div>
-        <div className="card-body">
-          <div className="form-group">
-            <label>Transaction Date:</label>
-            <input type="date" value={this.state.date} onChange={this.handleDateChange}
-            className="form-control"></input>
+        <div>
+          <label>Transaction Date:</label>
+          <div>
+            <input type="date" value={this.state.date} 
+              onChange={this.handleDateChange}></input>
           </div>
         </div>
       </div>
@@ -31,4 +31,3 @@ export class ExpenseDate extends Component {
 }
 
 export default ExpenseDate
-
