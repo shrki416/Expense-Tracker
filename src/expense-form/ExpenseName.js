@@ -2,34 +2,35 @@ import React, { Component } from 'react'
 
 export class ExpenseName extends Component {
     constructor(props) {
-        super(props)
+        console.log(props)
+      super(props)
     
         this.state = {
-            expenseName: ''
+            name: ''
         }
     }
 
     handleExpenseNameChange = (e) => {
         this.setState({
-          expenseName: e.target.value
+          name: e.target.value
         })
     }
     
     render() {
         return (
-          <div>
-            <div className="card-body">
+          <>
+            <div className="expense-name">
               <label>Expense Name:</label>
               <div>
                 <input
                   type="text"
                   placeholder="Name Goes Here"
-                  value={this.state.expenseName}
+                  value={this.state.name}
                   onChange={this.handleExpenseNameChange}>
                 </input>
               </div>
             </div>
-          </div>
+          </>
         );
     }
 }

@@ -17,10 +17,11 @@ export class ExpenseAmount extends Component {
   
   render() {
     return (
-      <div>
+      <div className="expense-amount">
         <label>Amount: </label>
         <div>
-          <input 
+          <input
+            type="number"
             value={this.state.expenseAmount} 
             onChange={this.handleAmountChange} 
             placeholder="Amount Goes Here"/>

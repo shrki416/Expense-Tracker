@@ -1,12 +1,12 @@
 import React from 'react'
-// import ExpenseItem from './expense-form/ExpenseItem'
+import ExpenseItem from './expense-form/ExpenseItem'
 
 
 export default function ExpenseTable() {
     return (
       <div>
-        <h6>Table goes here</h6>
-        {/* <table>
+        <h2>Expense Table</h2>
+        <table>
           <thead>
             <tr>
               <th>Type</th>
@@ -18,7 +18,7 @@ export default function ExpenseTable() {
           <ExpenseItem />
           <ExpenseItem />
           <ExpenseItem />
-        </table> */}
+        </table>
       </div>
     );
 }

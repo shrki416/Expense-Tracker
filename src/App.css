@@ -7,10 +7,6 @@ body {
     font-family: 'McLaren', cursive;
 }
 
-.container {
-    padding: 4rem 8rem 4rem;
-}
-
 .header {
     padding: 4rem 8rem 4rem;
     background-color: #d1d8e0;
@@ -21,10 +17,59 @@ label, th, td {
     color: #8395a7;
 }
 
-.card-header {
-    color: #8395a7;
-}
-
 h1, h2, p {
     margin: 0.5rem auto;
 }
+
+input[type=text], 
+input[type=date],
+input[type=number] {
+    width: 75%;
+    height: 2em;
+    border-radius: 5px;
+}
+
+/* Form and Table */
+.container {
+    padding: 4rem 8rem 4rem;
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "form table";
+    
+}
+
+.expense-form {
+    color: #8395a7;
+    grid-area: form;
+}
+
+.expense-name, 
+.expense-type, 
+.expense-date,
+.expense-amount {
+    margin: 0.75rem auto;
+}
+
+.expense-form-btn {
+    margin: 0.75rem auto;
+    width: 75%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid #8395a7;
+    color: #8395a7;
+    font-size: large;
+}
+.expense-form-btn:hover {
+    cursor: pointer;
+    background-color: #8395a7;
+    color: #2f3542 ;
+}
+
+
+.expense-table {
+    color: #8895a7;
+    grid-area: table;
+}
+

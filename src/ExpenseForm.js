@@ -6,33 +6,42 @@ import ExpenseAmount from './expense-form/ExpenseAmount'
 import ExpenseTable from './ExpenseTable'
 
 export class ExpenseForm extends Component {
+  constructor(props){
+    console.log(props)
+    super()
+  }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    alert("submitted!")
+    alert("expense btn works!")
+    console.log("name: ", this.name)
   }
 
   render() {
     return (
-      <div className="container card-header">
-        <div>
-          <div>
-            <h2>Expense Form</h2>
+      <form onSubmit={this.handleSubmit}>
+        <div className="container">
+          <div className="expense-form">
+            <div>
+              <h2>Expense Form</h2>
+            </div>
+            <div>
+              <ExpenseName name={this.handleNameChange}/>
+              <ExpenseType type={this.props.type}/>
+              <ExpenseDate date={this.props.date}/>
+              <ExpenseAmount amount={this.props.amount}/>
+            </div>
+            <div>
+              <button className="expense-form-btn" type="submit" value="submit">
+                Add Expense
+              </button>
+            </div>
           </div>
-          <div>
-            <ExpenseName />
-            <ExpenseType />
-            <ExpenseDate />
-            <ExpenseAmount />
-          </div>
-          <div>
-            <button type="submit" onChange={this.handleSubmit}>Add Expense</button>
+          <div className="expense-table">
+            <ExpenseTable />
           </div>
         </div>
-        <div>
-          <ExpenseTable />
-        </div>
-      </div>
+      </form>
     );
   }
 }

@@ -17,15 +17,15 @@ export class ExpenseDate extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <>
+        <div className="expense-date">
           <label>Transaction Date:</label>
           <div>
             <input type="date" value={this.state.date} 
               onChange={this.handleDateChange}></input>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
