@@ -11,7 +11,7 @@ export class ExpenseName extends Component {
 
     handleExpenseNameChange = (e) => {
         this.setState({
-            expenseName: e.target.value
+          expenseName: e.target.value
         })
     }
     
@@ -23,7 +23,7 @@ export class ExpenseName extends Component {
               <div>
                 <input
                   type="text"
-                  placeholder="Your Expense Name Goes Here"
+                  placeholder="Name Goes Here"
                   value={this.state.expenseName}
                   onChange={this.handleExpenseNameChange}>
                 </input>
