@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import ExpenseTable from './ExpenseTable'
 
 class ExpenseForm extends Component {
   constructor(props) {
@@ -91,7 +90,29 @@ class ExpenseForm extends Component {
             </div>
           </div>
           <div className="expense-table">
-            <ExpenseTable />
+            <div>
+              <h2>Expense Table</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <i className="fad fa-credit-card"></i>
+                    </td>
+                    <td>Lunch</td>
+                    <td>11/10/2019</td>
+                    <td>$50.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </form>
