@@ -13,10 +13,6 @@ body {
     color: #303952;
 }
 
-label, th, td {
-    color: #8395a7;
-}
-
 h1, h2, p {
     margin: 0.5rem auto;
 }
@@ -36,7 +32,6 @@ input[type=number] {
     grid-column-gap: 2rem;
     grid-template-columns: 1fr 3fr;
     grid-template-areas: "form table";
-    
 }
 
 .expense-form {
@@ -61,15 +56,33 @@ input[type=number] {
     color: #8395a7;
     font-size: large;
 }
+
 .expense-form-btn:hover {
     cursor: pointer;
     background-color: #8395a7;
     color: #2f3542 ;
 }
 
-
 .expense-table {
     color: #8895a7;
     grid-area: table;
+    width: 100%;
 }
 
+.expense-table td, .expense-table th {
+    /* border: 1px solid #8395a7; */
+    padding: 6px;
+}
+/* 
+.expense-table tr:nth-child() {
+    background-color: #8395a7;
+} */
+
+.expense-table tr:hover {
+    background-color: #8395a7;
+    color: #303952;
+}
+
+.expense-table th {
+    text-align: left;
+}

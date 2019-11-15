@@ -18,12 +18,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <ExpenseForm 
-          name=""
-          date=""
-          type=""
-          amount=""
-        />
+        <ExpenseForm />
       </div>
     );
   }
