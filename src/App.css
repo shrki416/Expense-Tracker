@@ -21,8 +21,10 @@ input[type=text],
 input[type=date],
 input[type=number] {
     width: 250px;
-    height: 2.5em;
+    height: 30px;
+    border: none;
     border-radius: 5px;
+    margin-top: 5px;
 }
 
 /* Form and Table */
@@ -37,13 +39,14 @@ input[type=number] {
 .expense-form {
     color: #8395a7;
     grid-area: form;
+    align-content: center;
 }
 
 .expense-name, 
 .expense-type, 
 .expense-date,
 .expense-amount {
-    margin: 0.75rem auto;
+    margin: 10px auto;
 }
 
 .expense-form-btn {
