@@ -48,6 +48,10 @@ class App extends React.Component {
     console.log('delete btn works!')
   }
 
+  checked(e){
+    console.log('checkbox checked!')
+  }
+
   render() {
     return (
       <>
@@ -57,7 +61,11 @@ class App extends React.Component {
             handleChange = {this.handleChange}
             handleSubmit = {this.handleSubmit}
           />
-          <ExpenseTable items = {this.state.items} deleteItem = {this.deleteItem}/>
+          <ExpenseTable 
+            items = {this.state.items} 
+            deleteItem = {this.deleteItem}
+            checked = {this.checked}
+          />
         </div>
       </>
     );

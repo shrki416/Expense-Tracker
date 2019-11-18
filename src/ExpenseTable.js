@@ -19,7 +19,7 @@ class Table extends React.Component {
               return (
                 <tr key={index}>
                   <td>
-                    <input type="checkbox" />
+                    <input type="checkbox" onClick={this.props.checked}/>
                   </td>
                   <td> {item.type} </td>
                   <td> {item.name} </td>
@@ -30,7 +30,9 @@ class Table extends React.Component {
             })}
           </tbody>
         </table>
-        <button className="expense-form-btn" type="submit" value="submit" onClick={this.props.deleteItem}>
+        <button 
+          className="expense-form-btn" type="submit" value="submit" 
+          onClick={this.props.deleteItem} >
           Delete Expense
         </button>
       </div>
