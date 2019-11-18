@@ -66,6 +66,14 @@ input[type=number] {
     color: #2f3542 ;
 }
 
+table {
+    border-collapse: collapse;
+}
+
+table tr:nth-child(even) {
+    background-color: #40407a;
+}
+
 .expense-table {
     color: #8895a7;
     grid-area: table;
@@ -73,7 +81,7 @@ input[type=number] {
 }
 
 .expense-table td, .expense-table th {
-    /* border: 1px solid #8395a7; */
+    border: 1px solid #8395a7;
     padding: 6px;
     text-align: left;
 }
