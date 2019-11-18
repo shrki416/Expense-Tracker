@@ -9,8 +9,8 @@ class App extends React.Component {
     super();
 
     this.state = {
-      name: "",
       type: "",
+      name: "",
       date: "",
       amount: "",
       items: []
@@ -19,7 +19,7 @@ class App extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    
+
     let items = [...this.state.items]
 
     items.push({
@@ -27,15 +27,15 @@ class App extends React.Component {
       name: this.state.name,
       date: this.state.date,
       amount: this.state.amount,
-    })
+    })   
 
     this.setState({
       items,
-      type: "",
-      name: "",
-      date: "",
-      amount: ""
-    });
+      type: '',
+      name: '',
+      date: '',
+      amount: ''
+    })
   };
 
   handleChange = e => {
