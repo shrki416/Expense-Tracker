@@ -9,30 +9,28 @@ class Table extends React.Component {
         <table>
           <tbody>
             <tr>
-              <th>
-                <input type="checkbox" />
-              </th>
+              <th><input type="checkbox"/></th>
               <th>Type</th>
               <th>Name</th>
               <th>Date</th>
               <th>Amount</th>
             </tr>
-            {items.map(item => {
+            {items.map((item, index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <td>
                     <input type="checkbox" />
                   </td>
                   <td> {item.type} </td>
                   <td> {item.name} </td>
                   <td> {item.date} </td>
-                  <td> $ {item.amount} </td>
+                  <td> ${item.amount} </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-        <button className="expense-form-btn" type="submit" value="submit">
+        <button className="expense-form-btn" type="submit" value="submit" onClick={this.props.deleteItem}>
           Delete Expense
         </button>
       </div>

@@ -44,6 +44,10 @@ class App extends React.Component {
     });
   };
 
+  deleteItem(e){
+    console.log('delete btn works!')
+  }
+
   render() {
     return (
       <>
@@ -53,7 +57,7 @@ class App extends React.Component {
             handleChange = {this.handleChange}
             handleSubmit = {this.handleSubmit}
           />
-          <ExpenseTable items = {this.state.items}/>
+          <ExpenseTable items = {this.state.items} deleteItem = {this.deleteItem}/>
         </div>
       </>
     );
