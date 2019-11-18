@@ -1,35 +1,9 @@
 import React, { Component } from "react"
 
 class ExpenseForm extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      name: "",
-      type: "",
-      date: "",
-      amount: ""
-    };
-    // this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange= e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
-
-  handleSubmit = e => {
-    e.preventDefault();
-    alert("expense btn works!");
-    console.log(
-      `${this.state.name} ${this.state.type} ${this.state.date} ${this.state.amount}`
-    );
-  };
-
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="container">
+      <form onSubmit={this.props.handleSubmit}>
           <div className="expense-form">
             <div>
               <h2>Expense Form</h2>
@@ -41,9 +15,9 @@ class ExpenseForm extends Component {
                   <input
                     name="name"
                     type="text"
-                    placeholder="Name Goes Here"
-                    value={this.state.name}
-                    onChange={this.handleChange}
+                    placeholder=" Name Goes Here"
+                    value={this.props.name}
+                    onChange={this.props.handleChange}
                   ></input>
                 </div>
               </div>
@@ -51,8 +25,8 @@ class ExpenseForm extends Component {
                 <label>Payment Method: </label>
                 <select
                   name="type"
-                  value={this.state.type}
-                  onChange={this.handleChange}
+                  value={this.props.type}
+                  onChange={this.props.handleChange}
                 >
                   <option value="card">Card</option>
                   <option value="cash">Cash</option>
@@ -63,10 +37,8 @@ class ExpenseForm extends Component {
                 <label>Transaction Date:</label>
                 <div>
                   <input
-                    name="date"
-                    type="date"
-                    value={this.state.date}
-                    onChange={this.handleChange}
+                    name="date" type="date" value={this.props.date}
+                    onChange={this.props.handleChange}
                   ></input>
                 </div>
               </div>
@@ -74,11 +46,9 @@ class ExpenseForm extends Component {
                 <label>Amount: </label>
                 <div>
                   <input
-                    name="amount"
-                    type="number"
-                    value={this.state.amount}
-                    onChange={this.handleChange}
-                    placeholder="Amount Goes Here"
+                    name="amount" type="number" value={this.props.amount}
+                    onChange={this.props.handleChange}
+                    placeholder=" Amount Goes Here"
                   />
                 </div>
               </div>
@@ -89,32 +59,6 @@ class ExpenseForm extends Component {
               </button>
             </div>
           </div>
-          <div className="expense-table">
-            <div>
-              <h2>Expense Table</h2>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <i className="fad fa-credit-card"></i>
-                    </td>
-                    <td>Lunch</td>
-                    <td>11/10/2019</td>
-                    <td>$50.00</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
       </form>
     );
   }
