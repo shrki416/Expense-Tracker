@@ -44,7 +44,7 @@ class App extends React.Component {
     });
   };
 
-  componentWillUpdate(nextProps, nextState) {
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
     localStorage.setItem('items', JSON.stringify(nextState.items))
   }
   
