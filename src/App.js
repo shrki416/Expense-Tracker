@@ -44,6 +44,17 @@ class App extends React.Component {
     });
   };
 
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('items', JSON.stringify(nextState.items))
+  }
+  
+  componentDidMount() {
+    localStorage.getItem("items") &&
+      this.setState({
+        items: JSON.parse(localStorage.getItem("items"))
+      });
+  }
+  
   deleteItem(e){
     console.log('delete btn works!')
   }

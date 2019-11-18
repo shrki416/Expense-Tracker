@@ -28,10 +28,10 @@ class ExpenseForm extends Component {
                   value={this.props.type}
                   onChange={this.props.handleChange}
                 >
-                  <option value="card">Cash</option>
-                  <option value="cash">Check</option>
-                  <option value="check">Credit Card</option>
-                  <option value="check">Debit Card</option>
+                  <option value="cash">Cash</option>
+                  <option value="check">Check</option>
+                  <option value="credit-card">Credit Card</option>
+                  <option value="debit-card">Debit Card</option>
                 </select>
               </div>
               <div className="expense-date">
