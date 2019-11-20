@@ -12,10 +12,10 @@ class ExpenseForm extends Component {
               <div className="expense-name">
                 <label>Expense Name:</label>
                 <div>
-                  <input
+                  <input required
                     name="name"
                     type="text"
-                    placeholder=" Name Goes Here"
+                    placeholder="Name Goes Here"
                     value={this.props.name}
                     onChange={this.props.handleChange}
                   ></input>
@@ -26,7 +26,7 @@ class ExpenseForm extends Component {
                 <select
                   name="type"
                   value={this.props.type}
-                  onChange={this.props.handleChange}
+                  onChange={this.props.handleChange} 
                 >
                   <option value="cash">Cash</option>
                   <option value="check">Check</option>
@@ -37,7 +37,7 @@ class ExpenseForm extends Component {
               <div className="expense-date">
                 <label>Transaction Date:</label>
                 <div>
-                  <input
+                  <input required
                     name="date" type="date" value={this.props.date}
                     onChange={this.props.handleChange}
                   ></input>
@@ -46,10 +46,10 @@ class ExpenseForm extends Component {
               <div className="expense-amount">
                 <label>Amount: </label>
                 <div>
-                  <input
+                  <input required
                     name="amount" type="number" value={this.props.amount}
                     onChange={this.props.handleChange}
-                    placeholder=" Amount Goes Here"
+                    placeholder="Amount Goes Here"
                   />
                 </div>
               </div>

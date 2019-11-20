@@ -31,7 +31,7 @@ class Table extends React.Component {
           </tbody>
         </table>
         <button 
-          className="expense-form-btn" type="submit" value="submit" 
+          className="expense-form-btn" type="button" value="submit" 
           onClick={this.props.deleteItem} >
           Delete Expense
         </button>

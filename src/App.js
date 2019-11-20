@@ -7,12 +7,13 @@ import Header from './Header';
 class App extends React.Component {
   constructor() {
     super();
-
+    
     this.state = {
       type: "",
       name: "",
       date: "",
       amount: "",
+      isCheckedToDelete: false,
       items: []
     };
   }
@@ -44,6 +45,7 @@ class App extends React.Component {
     });
   };
 
+  // need to fix: will be deprecated soon
   UNSAFE_componentWillUpdate(nextProps, nextState) {
     localStorage.setItem('items', JSON.stringify(nextState.items))
   }
@@ -55,8 +57,12 @@ class App extends React.Component {
       });
   }
   
-  deleteItem(e){
+  deleteItem(){
     console.log('delete btn works!')
+
+    // const arrayCopy = this.state.items
+    // this.setState({ items: arrayCopy })
+    // console.log(arrayCopy)
   }
 
   checked(e){
@@ -71,6 +77,10 @@ class App extends React.Component {
           <ExpenseForm 
             handleChange = {this.handleChange}
             handleSubmit = {this.handleSubmit}
+            name = {this.state.name}
+            type = {this.state.type}
+            date = {this.state.date}
+            amount = {this.state.amount}
           />
           <ExpenseTable 
             items = {this.state.items} 
