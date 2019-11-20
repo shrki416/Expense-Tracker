@@ -46,23 +46,22 @@ class App extends React.Component {
   };
 
   // need to fix: will be deprecated soon
-  UNSAFE_componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem('items', JSON.stringify(nextState.items))
-  }
+  // UNSAFE_componentWillUpdate(nextProps, nextState) {
+  //   localStorage.setItem('items', JSON.stringify(nextState.items))
+  // }
   
-  componentDidMount() {
-    localStorage.getItem("items") &&
-      this.setState({
-        items: JSON.parse(localStorage.getItem("items"))
-      });
-  }
+  // componentDidMount() {
+  //   localStorage.getItem("items") &&
+  //     this.setState({
+  //       items: JSON.parse(localStorage.getItem("items"))
+  //     });
+  // }
   
   deleteItem(){
     console.log('delete btn works!')
 
-    // const arrayCopy = this.state.items
-    // this.setState({ items: arrayCopy })
-    // console.log(arrayCopy)
+    // const remaingExpenses = expenses.filter(expense => !expense.isCheckedToDelete)
+    // this.setState({ remaingExpenses })
   }
 
   checked(e){
