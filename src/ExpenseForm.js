@@ -39,8 +39,8 @@ class ExpenseForm extends Component {
                 <div>
                   <input
                     name="date" type="date" value={this.props.date}
-                    onChange={this.props.handleChange}
-                  ></input>
+                    onChange={this.props.handleChange}>
+                  </input>
                 </div>
               </div>
               <div className="expense-amount">
