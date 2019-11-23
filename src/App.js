@@ -7,7 +7,7 @@ import Header from './Header';
 class App extends React.Component {
   constructor() {
     super();
-    
+
     this.state = {
       type: "",
       name: "",
@@ -16,15 +16,15 @@ class App extends React.Component {
       isCheckedToDelete: false,
       items: []
     };
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.deleteItem = this.deleteItem.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   handleSubmit = e => {
     e.preventDefault();
 
-    let items = [...this.state.items]
+    let items = [...this.state.items];
 
     items.push({
       type: this.state.type,
@@ -32,62 +32,40 @@ class App extends React.Component {
       date: this.state.date,
       amount: this.state.amount,
       checked: this.state.isCheckedToDelete
-    })   
+    });
 
     this.setState({
       items,
-      type: '',
-      name: '',
-      date: '',
-      amount: '',
+      type: "",
+      name: "",
+      date: "",
+      amount: "",
       isCheckedToDelete: false
-    })
-    console.log(this.state)
-  
-    localStorage.setItem('items', JSON.stringify(items))
+    });
+    console.log(this.state);
+    console.log(items.length);
+
+    localStorage.setItem("items", JSON.stringify(items));
   };
 
   handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-
-    // let formatDate = new Date()
-    // let dd = formatDate.getDate()
-    // let mm = formatDate.getMonth()
-    // let yy = formatDate.getFullYear()
-
-    // if (dd < 10) { dd += '0' } 
-    // if (mm < 10) { mm += '0' }
-
-    // formatDate = `${mm}/${dd}/${yy}`
-
-    // if (e.target.name === 'date'){
-    //   this.setState({
-    //     date: formatDate
-    //   }) 
-    // } else {
-    //   this.setState({
-    //     [e.target.name]: e.target.value
-    //   })
-    // }
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   componentDidMount() {
     localStorage.getItem("items") &&
       this.setState({ items: JSON.parse(localStorage.getItem("items")) });
   }
-  
-  deleteItem(e){
-    console.log('delete btn works!')
+
+  handleCheck = e => {
+    console.log('checkbox checked')
+    let items = [...this.state.items]
     
-    // Create a variable that is a copy of items
-    
-    // Loop through each item in items (copy)
-      // if item is marked for deletion
-      // then remove item from items array
-    
-    // update state: set items to equal the copy of the items
+    console.log(items)
+  }
+
+  deleteItem(e) {
+    console.log("delete btn works!");
   }
 
   render() {
@@ -95,18 +73,18 @@ class App extends React.Component {
       <>
         <Header />
         <div className="container">
-          <ExpenseForm 
-            handleChange = {this.handleChange}
-            handleSubmit = {this.handleSubmit}
-            name = {this.state.name}
-            type = {this.state.type}
-            date = {this.state.date}
-            amount = {this.state.amount}
+          <ExpenseForm
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            name={this.state.name}
+            type={this.state.type}
+            date={this.state.date}
+            amount={this.state.amount}
           />
           <ExpenseTable 
-            items = {this.state.items} 
-            deleteItem = {this.deleteItem}
-          />
+            items={this.state.items} 
+            deleteItem={this.deleteItem}
+            checkedItem={this.handleCheck} />
         </div>
       </>
     );
