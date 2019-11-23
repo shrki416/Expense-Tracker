@@ -46,8 +46,29 @@ class App extends React.Component {
   };
 
   handleChange = e => {
-    const {name, value, type, checked} = e.target
-    type === "checkbox" ? this.setState({[name]: checked}) : this.setState({[name]: value});
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+
+    let formatDate = new Date()
+    let dd = formatDate.getDate()
+    let mm = formatDate.getMonth()
+    let yy = formatDate.getFullYear()
+    if (dd < 10) {
+      dd += '0'
+    } if (mm < 10) {
+      mm += '0'
+    }
+    formatDate = `${mm}/${dd}/${yy}`
+    if (e.target.name === 'date'){
+      this.setState({
+        date: formatDate
+      }) 
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value
+      })
+    }
   };
 
   // need to fix: will be deprecated soon
@@ -75,6 +96,7 @@ class App extends React.Component {
       checked: this.state.isCheckedToDelete
     });   
     console.log(items)
+
     // Loop through each item in items (copy)
       // if item is marked for deletion
       // then remove item from items array
