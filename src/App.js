@@ -19,6 +19,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.checkedItem = this.handleCheck.bind(this);
   }
 
   handleSubmit = e => {
@@ -57,15 +58,16 @@ class App extends React.Component {
       this.setState({ items: JSON.parse(localStorage.getItem("items")) });
   }
 
-  handleCheck = e => {
-    console.log('checkbox checked')
-    let items = [...this.state.items]
-    
-    console.log(items)
+  handleCheck = index => {
+    console.log('checked!')
   }
 
-  deleteItem(e) {
-    console.log("delete btn works!");
+  deleteItem(index) {
+    console.log('delete!')
+
+    const items = [...this.state.items]
+    items.splice(index, 1)
+    this.setState({ items })
   }
 
   render() {
