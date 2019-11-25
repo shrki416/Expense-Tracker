@@ -53,21 +53,27 @@ class App extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleCheck = index => {
+    // console.log("checked!");
+    console.log(this.state.isCheckedToDelete)
+    let checkedItem = this.state.isCheckedToDelete
+    if (checkedItem === false) {
+      checkedItem = !checkedItem
+    }
+    console.log(checkedItem)
+  };
+
+  deleteItem(index) {
+    console.log("delete!");
+
+    const newItems = [...this.state.items];
+    newItems.splice(index, 1);
+    this.setState({ items: newItems });
+  }
+
   componentDidMount() {
     localStorage.getItem("items") &&
       this.setState({ items: JSON.parse(localStorage.getItem("items")) });
-  }
-
-  handleCheck = index => {
-    console.log('checked!')
-  }
-
-  deleteItem(index) {
-    console.log('delete!')
-
-    const items = [...this.state.items]
-    items.splice(index, 1)
-    this.setState({ items })
   }
 
   render() {
@@ -83,10 +89,11 @@ class App extends React.Component {
             date={this.state.date}
             amount={this.state.amount}
           />
-          <ExpenseTable 
-            items={this.state.items} 
+          <ExpenseTable
+            items={this.state.items}
             deleteItem={this.deleteItem}
-            checkedItem={this.handleCheck} />
+            checkedItem={this.handleCheck}
+          />
         </div>
       </>
     );
