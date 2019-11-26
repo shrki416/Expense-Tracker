@@ -53,21 +53,25 @@ class App extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleCheck = index => {
-    // console.log("checked!");
-    console.log(this.state.isCheckedToDelete)
-    let checkedItem = this.state.isCheckedToDelete
-    if (checkedItem === false) {
-      checkedItem = !checkedItem
-    }
-    console.log(checkedItem)
+  toggleCheckedItem (index) {
+    const items = [...this.state.items]
+    const item = items.find(item => item.index === index)
+    item.checked = !item.checked
+    this.setState({ items: items })
+    console.log(item.checked)
+  }
+
+  handleCheck = () => {
+    this.toggleCheckedItem()
+    console.log(this.state.items.checked)
   };
 
   deleteItem(index) {
-    console.log("delete!");
-
     const newItems = [...this.state.items];
-    newItems.splice(index, 1);
+    console.log(newItems)
+    if (newItems.checked === true) {
+      newItems.splice(index, 1);
+    }
     this.setState({ items: newItems });
   }
 

@@ -11,6 +11,7 @@ body {
     padding: 4rem 8rem 4rem;
     background-color: #d1d8e0;
     color: #303952;
+    /* text-align: center; */
 }
 
 h1, h2, p {
@@ -33,15 +34,15 @@ input[type=number] {
 .container {
     padding: 4rem 8rem 4rem;
     display: grid;
-    grid-column-gap: 2rem;
-    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 5rem;
+    grid-template-columns: 1fr 2fr;
     grid-template-areas: "form table";
 }
 
 .expense-form {
     color: #8395a7;
     grid-area: form;
-    align-content: center;
+    text-align: center;
 }
 
 .expense-name, 
@@ -70,6 +71,7 @@ input[type=number] {
 
 table {
     border-collapse: collapse;
+    margin: auto;
 }
 
 table tr:nth-child(even) {
@@ -79,13 +81,14 @@ table tr:nth-child(even) {
 .expense-table {
     color: #8895a7;
     grid-area: table;
-    width: 100%;
+    text-align: center;
+    border: 3px solid #F9FAF5;
+    background-color: #312D2F;
 }
 
 .expense-table td, .expense-table th {
     border: 1px solid #8395a7;
     padding: 6px;
-    text-align: left;
 }
 
 .expense-table tr:hover {
