@@ -24,8 +24,8 @@ class Table extends React.Component {
                     <input
                       id={index}
                       type="checkbox"
-                      checked={this.props.isCheckedToDelete}
-                      onClick={this.props.checkedItem}
+                      checked={items.index}
+                      onChange={this.props.checkedItem.bind(this, index)}
                     />
                   </td>
                   <td> {item.type} </td>
