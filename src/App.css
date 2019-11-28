@@ -11,7 +11,7 @@ body {
     padding: 4rem 8rem 4rem;
     background-color: #d1d8e0;
     color: #303952;
-    /* text-align: center; */
+    text-align: center;
 }
 
 h1, h2, p {

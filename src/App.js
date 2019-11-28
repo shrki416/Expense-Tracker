@@ -43,9 +43,6 @@ class App extends React.Component {
       amount: "",
       checked: false
     });
-    console.log(this.state);
-    console.log(items.length);
-
     localStorage.setItem("items", JSON.stringify(items));
   };
 
@@ -53,7 +50,6 @@ class App extends React.Component {
     const target = e.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
-
     this.setState({ [name] : value})
   };
 
@@ -64,9 +60,10 @@ class App extends React.Component {
     this.setState({ items: items });
   };
 
-  deleteItem(index) {
+  deleteItem() {
     const items = [...this.state.items]
-    items.filter(item => console.log(items[index]) )
+    const newItems = items.filter(item => !item.checked)
+    this.setState({ items: newItems })
   }
 
   componentDidMount() {
