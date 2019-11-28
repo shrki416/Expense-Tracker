@@ -13,7 +13,7 @@ class App extends React.Component {
       name: "",
       date: "",
       amount: "",
-      isCheckedToDelete: false,
+      checked: false,
       items: []
     };
     this.handleChange = this.handleChange.bind(this);
@@ -32,7 +32,7 @@ class App extends React.Component {
       name: this.state.name,
       date: this.state.date,
       amount: this.state.amount,
-      checked: this.state.isCheckedToDelete
+      checked: this.state.checked
     });
 
     this.setState({
@@ -41,7 +41,7 @@ class App extends React.Component {
       name: "",
       date: "",
       amount: "",
-      isCheckedToDelete: false
+      checked: false
     });
     console.log(this.state);
     console.log(items.length);
@@ -59,22 +59,14 @@ class App extends React.Component {
 
   handleCheck = (index) => {
     const items = [...this.state.items];
-    if (items.isCheckedToDelete === false){
-      const item = items.filter(item => item.index === index);
-      item.isCheckedToDelete = !item.isCheckedToDelete;
-    }
+    const item = items[index];
+    item.checked = !item.checked;
     this.setState({ items: items });
-    console.log(items);
-    console.log(index)
   };
 
   deleteItem(index) {
-    const newItems = [...this.state.items];
-    console.log(newItems)
-    if (newItems.checked === true) {
-      newItems.splice(index, 1);
-    }
-    this.setState({ items: newItems });
+    const items = [...this.state.items]
+    items.filter(item => console.log(items[index]) )
   }
 
   componentDidMount() {
