@@ -28,6 +28,8 @@ This project is developed from scratch using **React** and **JavaScript**.  This
 * Delete expense(s) from table
 * LocalStorage is used to persist the returned data
 
+Checkout the project [HERE](https://polar-sands-39515.herokuapp.com/)
+
 ***
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
