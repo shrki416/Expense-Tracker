@@ -19,10 +19,9 @@ class Table extends React.Component {
             </tr>
             {items.map((item, index) => {
               return (
-                <tr key={index}>
+                <tr key={item.name + '_' +index}>
                   <td>
                     <input
-                      id={index}
                       type="checkbox"
                       checked={this.props.checked}
                       onChange={this.props.checkedItem.bind(this, index)}
