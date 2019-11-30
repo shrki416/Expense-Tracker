@@ -9,7 +9,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      type: "",
+      type: "cash",
       name: "",
       date: "",
       amount: "",
@@ -37,7 +37,7 @@ class App extends React.Component {
 
     this.setState({
       items,
-      type: "",
+      type: "cash",
       name: "",
       date: "",
       amount: "",
@@ -80,7 +80,7 @@ class App extends React.Component {
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             name={this.state.name}
-            type={this.state.type}
+            type={this.state.value}
             date={this.state.date}
             amount={this.state.amount}
           />
