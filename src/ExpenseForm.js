@@ -47,9 +47,10 @@ class ExpenseForm extends Component {
                 <label>Amount: </label>
                 <div>
                   <input required
-                    name="amount" type="number" value={this.props.amount}
+                    name="amount" type="number" value={this.props.amount} 
                     onChange={this.props.handleChange}
                     placeholder="Amount Goes Here"
+                    step="0.01"
                   />
                 </div>
               </div>
