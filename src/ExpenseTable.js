@@ -1,8 +1,27 @@
 import React from "react";
 
 class Table extends React.Component {
+  createItemRows() {
+    return this.props.items.map((item, index) => {
+        return (
+          <tr key={item.name + "_" + index}>
+            <td>
+              <input
+                type="checkbox"
+                checked={this.props.checked}
+                onChange={this.props.checkedItem.bind(this, index)}
+              />
+            </td>
+            <td> {item.type} </td>
+            <td> {item.name} </td>
+            <td> {item.date} </td>
+            <td> ${item.amount} </td>
+          </tr>
+        );
+      });
+  }
+  
   render() {
-      const items = this.props.items;
     return (
       <div className="expense-table">
         <h2>Expense Table</h2>
@@ -17,23 +36,7 @@ class Table extends React.Component {
               <th>Date</th>
               <th>Amount</th>
             </tr>
-            {items.map((item, index) => {
-              return (
-                <tr key={item.name + '_' +index}>
-                  <td>
-                    <input
-                      type="checkbox"
-                      checked={this.props.checked}
-                      onChange={this.props.checkedItem.bind(this, index)}
-                    />
-                  </td>
-                  <td> {item.type} </td>
-                  <td> {item.name} </td>
-                  <td> {item.date} </td>
-                  <td> ${item.amount} </td>
-                </tr>
-              );
-            })}
+            {this.createItemRows()}
           </tbody>
         </table>
         <button

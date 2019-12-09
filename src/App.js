@@ -37,7 +37,7 @@ class App extends React.Component {
 
     this.setState({
       items,
-      type: "",
+      type: "cash",
       name: "",
       date: "",
       amount: "",
@@ -66,8 +66,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    localStorage.getItem("items") &&
-      this.setState({ items: JSON.parse(localStorage.getItem("items")) });
+    const items = localStorage.getItem("items") || '[]';
+    this.setState({ items: JSON.parse(items) });
   }
 
   render() {
