@@ -9,7 +9,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      type: "cash",
+      type: "",
       name: "",
       date: "",
       amount: "",
@@ -37,7 +37,7 @@ class App extends React.Component {
 
     this.setState({
       items,
-      type: "cash",
+      type: "",
       name: "",
       date: "",
       amount: "",
@@ -61,8 +61,7 @@ class App extends React.Component {
   };
 
   deleteItem() {
-    const items = [...this.state.items]
-    const newItems = items.filter(item => !item.checked)
+    const newItems = this.state.items.filter(item => !item.checked)
     this.setState({ items: newItems })
   }
 
@@ -80,7 +79,7 @@ class App extends React.Component {
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             name={this.state.name}
-            type={this.state.value}
+            type={this.state.type}
             date={this.state.date}
             amount={this.state.amount}
           />

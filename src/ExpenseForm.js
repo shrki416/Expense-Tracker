@@ -26,11 +26,11 @@ class ExpenseForm extends Component {
               <label>Payment Method: </label>
               <select
                 name="type"
-                value={this.props.value}
+                value={this.props.type}
                 onChange={this.props.handleChange}
               >
                 <option value="cash">Cash</option>
-                <option selected value="check">Check</option>
+                <option value="check">Check</option>
                 <option value="credit-card">Credit Card</option>
                 <option value="debit-card">Debit Card</option>
               </select>
