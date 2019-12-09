@@ -1,5 +1,7 @@
 # Expense Tracker
 
+Checkout the project [HERE](https://polar-sands-39515.herokuapp.com/)
+
 ![expense-tracker-image](./src/images/expense-tracker-img.png)
 <br />
 ![javascript](./src/images/javaScript_Icon.png)
@@ -27,7 +29,5 @@ This project is developed from scratch using **React** and **JavaScript**.  This
 * Add expense(s) to table
 * Delete expense(s) from table
 * LocalStorage is used to persist the returned data
-
-Checkout the project [HERE](https://polar-sands-39515.herokuapp.com/)
 
 ***
