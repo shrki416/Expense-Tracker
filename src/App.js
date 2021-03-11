@@ -1,8 +1,8 @@
-import React from 'react';
-import './App.css';
-import ExpenseForm from './ExpenseForm';
-import ExpenseTable from './ExpenseTable';
-import Header from './Header';
+import React from "react";
+import "./App.css";
+import ExpenseForm from "./ExpenseForm";
+import ExpenseTable from "./ExpenseTable";
+import Header from "./Header";
 
 class App extends React.Component {
   constructor() {
@@ -14,7 +14,7 @@ class App extends React.Component {
       date: "",
       amount: "",
       checked: false,
-      items: []
+      items: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +22,7 @@ class App extends React.Component {
     this.checkedItem = this.handleCheck.bind(this);
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     let items = [...this.state.items];
@@ -32,7 +32,7 @@ class App extends React.Component {
       name: this.state.name,
       date: this.state.date,
       amount: this.state.amount,
-      checked: this.state.checked
+      checked: this.state.checked,
     });
 
     this.setState({
@@ -41,16 +41,15 @@ class App extends React.Component {
       name: "",
       date: "",
       amount: "",
-      checked: false
+      checked: false,
     });
-    localStorage.setItem("items", JSON.stringify(items));
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     const target = e.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
-    this.setState({ [name] : value})
+    this.setState({ [name]: value });
   };
 
   handleCheck = (index) => {
@@ -61,13 +60,17 @@ class App extends React.Component {
   };
 
   deleteItem() {
-    const newItems = this.state.items.filter(item => !item.checked)
-    this.setState({ items: newItems })
+    const newItems = this.state.items.filter((item) => !item.checked);
+    this.setState({ items: newItems });
   }
 
   componentDidMount() {
-    const items = localStorage.getItem("items") || '[]';
+    const items = localStorage.getItem("items") || "[]";
     this.setState({ items: JSON.parse(items) });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("items", JSON.stringify(this.state.items));
   }
 
   render() {
@@ -94,4 +97,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App;
