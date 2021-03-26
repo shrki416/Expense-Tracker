@@ -1,5 +1,4 @@
 import React from "react";
-// import "./App.css";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 import Header from "./Header";
