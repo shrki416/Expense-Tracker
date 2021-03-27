@@ -1,20 +1,26 @@
 import React from "react";
 
 function ExpenseTable({ items, deleteItem, checkedItem }) {
+  const formatDate = (date) => {
+    const newDate = new Date(date);
+    return Intl.DateTimeFormat("en-US").format(newDate);
+  };
+
   const formatAmount = (amount) => (amount = parseFloat(amount).toFixed(2));
-  const createItemRows = items.map((item, index) => (
-    <tr key={item.name + "_" + index}>
+
+  const rows = items.map(({ name, type, date, amount, checked }, index) => (
+    <tr key={`${name}_${index}`}>
       <td>
         <input
           type="checkbox"
-          checked={item.checked}
+          checked={checked}
           onChange={() => checkedItem(index)}
         />
       </td>
-      <td> {item.type} </td>
-      <td> {item.name} </td>
-      <td> {item.date} </td>
-      <td> $ {formatAmount(item.amount)} </td>
+      <td> {type} </td>
+      <td> {name} </td>
+      <td> {formatDate(date)} </td>
+      <td> $ {formatAmount(amount)} </td>
     </tr>
   ));
 
@@ -32,7 +38,7 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
             <th>Date</th>
             <th>Amount</th>
           </tr>
-          {createItemRows}
+          {rows}
         </tbody>
       </table>
       <button
