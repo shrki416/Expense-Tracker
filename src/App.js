@@ -3,6 +3,36 @@ import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 import Header from "./Header";
 
+function App() {
+  return (
+    <>
+      <Header />
+      <div className="container">
+        <ExpenseForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          name={this.state.name}
+          type={this.state.type}
+          date={this.state.date}
+          amount={this.state.amount}
+        />
+        <ExpenseTable
+          items={this.state.items}
+          deleteItem={this.deleteItem}
+          checkedItem={this.handleCheck}
+        />
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+import React from "react";
+import ExpenseForm from "./ExpenseForm";
+import ExpenseTable from "./ExpenseTable";
+import Header from "./Header";
+
 class App extends React.Component {
   constructor() {
     super();
