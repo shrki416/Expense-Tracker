@@ -9,12 +9,12 @@ const App = () => {
       <Header />
       <div className="container">
         <ExpenseForm
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          name={this.state.name}
-          type={this.state.type}
-          date={this.state.date}
-          amount={this.state.amount}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          name={state.name}
+          type={state.type}
+          date={state.date}
+          amount={state.amount}
         />
         <ExpenseTable
           items={this.state.items}
