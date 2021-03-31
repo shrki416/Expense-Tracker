@@ -4,18 +4,6 @@ import ExpenseTable from "./ExpenseTable";
 import Header from "./Header";
 
 const App = () => {
-  const [name, setName] = useState("");
-  const [type, setType] = useState("");
-  const [date, setDate] = useState("");
-  const [amount, setAmount] = useState("");
-
-  const handleChange = (e) => {
-    const value =
-      e.target.type === "checkbox" ? e.target.checked : target.value;
-    const name = target.name;
-    this.setState({ [name]: value });
-  };
-
   return (
     <>
       <Header />
