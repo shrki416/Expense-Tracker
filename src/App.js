@@ -1,25 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 import Header from "./Header";
 
 const App = () => {
+  const [name, setName] = useState("");
+  const [type, setType] = useState("");
+  const [date, setDate] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const handleChange = (e) => {
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : target.value;
+    const name = target.name;
+    this.setState({ [name]: value });
+  };
+
   return (
     <>
       <Header />
       <div className="container">
         <ExpenseForm
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          name={state.name}
-          type={state.type}
-          date={state.date}
-          amount={state.amount}
+          // handleChange={handleChange}
+          // handleSubmit={handleSubmit}
+          name={name}
+          type={type}
+          date={date}
+          amount={amount}
         />
         <ExpenseTable
-          items={this.state.items}
-          deleteItem={this.deleteItem}
-          checkedItem={this.handleCheck}
+        // items={this.state.items}
+        // deleteItem={this.deleteItem}
+        // checkedItem={this.handleCheck}
         />
       </div>
     </>
