@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-function ExpenseForm({ handleSubmit, handleChange, name, type, date, amount }) {
+const ExpenseForm = () => {
+  const [name, setName] = useState("");
+  const [type, setType] = useState("");
+  const [date, setDate] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const handleChange = (e) => {
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : target.value;
+    const name = target.name;
+    this.setState({ [name]: value });
+  };
   return (
     <form onSubmit={handleSubmit}>
       <div className="expense-form">
@@ -12,12 +23,16 @@ function ExpenseForm({ handleSubmit, handleChange, name, type, date, amount }) {
             <label>Expense Name:</label>
             <div>
               <input
-                required
                 name="name"
                 type="text"
                 placeholder="Name Goes Here"
                 value={name}
-                onChange={handleChange}
+                // onChange={handleChange}
+                onChange={(e) => setName(e.target.value)}
+                // value={email}
+                required="required"
+                // type="email"
+                // placeholder="Email"
               ></input>
             </div>
           </div>
@@ -64,6 +79,6 @@ function ExpenseForm({ handleSubmit, handleChange, name, type, date, amount }) {
       </div>
     </form>
   );
-}
+};
 
 export default ExpenseForm;
