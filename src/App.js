@@ -1,37 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 import Header from "./Header";
 
-const App = () => {
-  return (
-    <>
-      <Header />
-      <div className="container">
-        <ExpenseForm
-          // handleChange={handleChange}
-          // handleSubmit={handleSubmit}
-          name={name}
-          type={type}
-          date={date}
-          amount={amount}
-        />
-        <ExpenseTable
-        // items={this.state.items}
-        // deleteItem={this.deleteItem}
-        // checkedItem={this.handleCheck}
-        />
-      </div>
-    </>
-  );
-};
+const App = () => (
+  <>
+    <Header />
+    <ExpenseForm />
+    <ExpenseTable />
+  </>
+);
 
 export default App;
-
-// import React from "react";
-// import ExpenseForm from "./ExpenseForm";
-// import ExpenseTable from "./ExpenseTable";
-// import Header from "./Header";
 
 // class App extends React.Component {
 //   constructor() {
@@ -101,29 +81,3 @@ export default App;
 //   componentDidUpdate() {
 //     localStorage.setItem("items", JSON.stringify(this.state.items));
 //   }
-
-//   render() {
-//     return (
-//       <>
-//         <Header />
-//         <div className="container">
-//           <ExpenseForm
-//             handleChange={this.handleChange}
-//             handleSubmit={this.handleSubmit}
-//             name={this.state.name}
-//             type={this.state.type}
-//             date={this.state.date}
-//             amount={this.state.amount}
-//           />
-//           <ExpenseTable
-//             items={this.state.items}
-//             deleteItem={this.deleteItem}
-//             checkedItem={this.handleCheck}
-//           />
-//         </div>
-//       </>
-//     );
-//   }
-// }
-
-// export default App;
