@@ -7,13 +7,15 @@ const ExpenseForm = () => {
   const [amount, setAmount] = useState("");
 
   const handleChange = (e) => {
-    const value =
-      e.target.type === "checkbox" ? e.target.checked : target.value;
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
     this.setState({ [name]: value });
   };
+
   return (
-    <form onSubmit={handleSubmit}>
+    // <form onSubmit={handleSubmit}>
+    <form>
       <div className="expense-form">
         <div>
           <h2>Expense Form</h2>
