@@ -1,21 +1,30 @@
 import React, { useState } from "react";
 
 const ExpenseForm = () => {
-  const [name, setName] = useState("");
-  const [type, setType] = useState("");
-  const [date, setDate] = useState("");
-  const [amount, setAmount] = useState("");
+  const [inputs, setInputs] = useState({
+    name: "",
+    type: "",
+    amount: "",
+    date: "",
+  });
+
+  const [items, setItems] = useState([]);
+
+  const { name, type, amount, date } = inputs;
 
   const handleChange = (e) => {
-    const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-    this.setState({ [name]: value });
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setItems({ ...inputs });
+
+    console.log(items);
   };
 
   return (
-    // <form onSubmit={handleSubmit}>
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="expense-form">
         <div>
           <h2>Expense Form</h2>
@@ -29,18 +38,19 @@ const ExpenseForm = () => {
                 type="text"
                 placeholder="Name Goes Here"
                 value={name}
-                // onChange={handleChange}
-                onChange={(e) => setName(e.target.value)}
-                // value={email}
+                onChange={(e) => handleChange(e)}
                 required="required"
-                // type="email"
-                // placeholder="Email"
-              ></input>
+              />
             </div>
           </div>
           <div className="expense-type">
             <label>Payment Method: </label>
-            <select name="type" value={type} onChange={handleChange}>
+            <select
+              required="required"
+              name="type"
+              value={type}
+              onChange={(e) => handleChange(e)}
+            >
               <option value="cash">Cash</option>
               <option value="check">Check</option>
               <option value="credit-card">Credit Card</option>
@@ -51,24 +61,24 @@ const ExpenseForm = () => {
             <label>Transaction Date:</label>
             <div>
               <input
+                required="required"
                 name="date"
                 type="date"
                 value={date}
-                onChange={handleChange}
-              ></input>
+                onChange={(e) => handleChange(e)}
+              />
             </div>
           </div>
           <div className="expense-amount">
             <label>Amount: </label>
             <div>
               <input
-                required
+                required="required"
                 name="amount"
                 type="number"
                 value={amount}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 placeholder="Amount Goes Here"
-                step="0.01"
               />
             </div>
           </div>
