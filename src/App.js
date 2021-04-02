@@ -54,13 +54,6 @@ export default App;
 //     });
 //   };
 
-//   handleChange = (e) => {
-//     const target = e.target;
-//     const value = target.type === "checkbox" ? target.checked : target.value;
-//     const name = target.name;
-//     this.setState({ [name]: value });
-//   };
-
 //   handleCheck = (index) => {
 //     const items = [...this.state.items];
 //     const item = items[index];
