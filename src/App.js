@@ -1,58 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 import Header from "./Header";
 
-const App = () => (
-  <>
-    <Header />
-    <ExpenseForm />
-    <ExpenseTable />
-  </>
-);
+const App = () => {
+  const [inputs, setInputs] = useState({
+    name: "",
+    type: "",
+    amount: "",
+    date: "",
+  });
+
+  const [expense, setExpense] = useState([]);
+
+  const handleChange = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newExpense = { ...inputs };
+    setExpense([...expense, newExpense]);
+  };
+
+  return (
+    <>
+      <Header />
+      <ExpenseForm
+        inputs={inputs}
+        submit={handleSubmit}
+        change={handleChange}
+      />
+      <ExpenseTable />
+    </>
+  );
+};
 
 export default App;
-
-// class App extends React.Component {
-//   constructor() {
-//     super();
-
-//     this.state = {
-//       type: "",
-//       name: "",
-//       date: "",
-//       amount: "",
-//       checked: false,
-//       items: [],
-//     };
-//     this.handleChange = this.handleChange.bind(this);
-//     this.handleSubmit = this.handleSubmit.bind(this);
-//     this.deleteItem = this.deleteItem.bind(this);
-//     this.checkedItem = this.handleCheck.bind(this);
-//   }
-
-//   handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     let items = [...this.state.items];
-
-//     items.push({
-//       type: this.state.type,
-//       name: this.state.name,
-//       date: this.state.date,
-//       amount: this.state.amount,
-//       checked: this.state.checked,
-//     });
-
-//     this.setState({
-//       items,
-//       type: "cash",
-//       name: "",
-//       date: "",
-//       amount: "",
-//       checked: false,
-//     });
-//   };
 
 //   handleCheck = (index) => {
 //     const items = [...this.state.items];

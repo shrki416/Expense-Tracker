@@ -1,30 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-const ExpenseForm = () => {
-  const [inputs, setInputs] = useState({
-    name: "",
-    type: "",
-    amount: "",
-    date: "",
-  });
-
-  const [items, setItems] = useState([]);
-
+const ExpenseForm = ({ inputs, submit, change }) => {
   const { name, type, amount, date } = inputs;
 
-  const handleChange = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setItems({ ...inputs });
-
-    console.log(items);
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={submit}>
       <div className="expense-form">
         <div>
           <h2>Expense Form</h2>
@@ -38,7 +18,7 @@ const ExpenseForm = () => {
                 type="text"
                 placeholder="Name Goes Here"
                 value={name}
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => change(e)}
                 required="required"
               />
             </div>
@@ -49,7 +29,7 @@ const ExpenseForm = () => {
               required="required"
               name="type"
               value={type}
-              onChange={(e) => handleChange(e)}
+              onChange={(e) => change(e)}
             >
               <option value="cash">Cash</option>
               <option value="check">Check</option>
@@ -65,7 +45,7 @@ const ExpenseForm = () => {
                 name="date"
                 type="date"
                 value={date}
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => change(e)}
               />
             </div>
           </div>
@@ -77,7 +57,7 @@ const ExpenseForm = () => {
                 name="amount"
                 type="number"
                 value={amount}
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => change(e)}
                 placeholder="Amount Goes Here"
               />
             </div>
