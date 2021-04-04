@@ -37,24 +37,3 @@ const App = () => {
 };
 
 export default App;
-
-//   handleCheck = (index) => {
-//     const items = [...this.state.items];
-//     const item = items[index];
-//     item.checked = !item.checked;
-//     this.setState({ items: items });
-//   };
-
-//   deleteItem() {
-//     const newItems = this.state.items.filter((item) => !item.checked);
-//     this.setState({ items: newItems });
-//   }
-
-//   componentDidMount() {
-//     const items = localStorage.getItem("items") || "[]";
-//     this.setState({ items: JSON.parse(items) });
-//   }
-
-//   componentDidUpdate() {
-//     localStorage.setItem("items", JSON.stringify(this.state.items));
-//   }
