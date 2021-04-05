@@ -31,7 +31,7 @@ const App = () => {
         submit={handleSubmit}
         change={handleChange}
       />
-      <ExpenseTable />
+      <ExpenseTable items={expense} />
     </>
   );
 };
