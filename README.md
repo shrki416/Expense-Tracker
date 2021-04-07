@@ -9,7 +9,6 @@ Checkout the project [HERE](https://polar-sands-39515.herokuapp.com/)
 ![css3_logo](./src/images/css3_icon.png)
 ![react_logo](./src/images/react_icon.png)
 ![heroku_logo](./src/images/heroku_icon.png)
-![nodejs_logo](./src/images/nodejs_icon.png)
 ![git_logo](./src/images/git_icon.png)
 ![github_logo](./src/images/github_icon.png)
 
