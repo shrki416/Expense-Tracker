@@ -8,21 +8,21 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
 
   const formatAmount = (amount) => (amount = parseFloat(amount).toFixed(2));
 
-  // const rows = items.map(({ name, type, date, amount, checked }, index) => (
-  //   <tr key={`${name}_${index}`}>
-  //     <td>
-  //       <input
-  //         type="checkbox"
-  //         checked={checked}
-  //         onChange={() => checkedItem(index)}
-  //       />
-  //     </td>
-  //     <td> {type} </td>
-  //     <td> {name} </td>
-  //     <td> {formatDate(date)} </td>
-  //     <td> $ {formatAmount(amount)} </td>
-  //   </tr>
-  // ));
+  const rows = items.map(({ name, type, date, amount, checked }, index) => (
+    <tr key={`${name}_${index}`}>
+      <td>
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={() => checkedItem(index)}
+        />
+      </td>
+      <td> {type} </td>
+      <td> {name} </td>
+      <td> {formatDate(date)} </td>
+      <td> $ {formatAmount(amount)} </td>
+    </tr>
+  ));
 
   return (
     <div className="expense-table">
@@ -38,7 +38,7 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
             <th>Date</th>
             <th>Amount</th>
           </tr>
-          {/* {rows} */}
+          {rows}
         </tbody>
       </table>
       <button
