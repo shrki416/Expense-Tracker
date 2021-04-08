@@ -7,15 +7,12 @@ const App = () => {
   const [inputs, setInputs] = useState({
     name: "",
     type: "",
-    amount: "",
     date: "",
+    amount: "",
   });
 
   const [expense, setExpense] = useState([]);
-
-  const handleChange = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
-  };
+  const [check, setCheck] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,15 +20,30 @@ const App = () => {
     setExpense([...expense, newExpense]);
   };
 
+  const onChange = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
+  };
+
+  const handleCheck = (index) => {
+    const items = [...expense];
+    const item = items[index];
+    item.check = !item.check;
+    setCheck({ items });
+  };
+
+  const deleteExpense = () => {
+    console.log(`delete`);
+  };
+
   return (
     <>
       <Header />
-      <ExpenseForm
-        inputs={inputs}
-        submit={handleSubmit}
-        change={handleChange}
+      <ExpenseForm submit={handleSubmit} inputs={inputs} change={onChange} />
+      <ExpenseTable
+        items={expense}
+        checkedItem={handleCheck}
+        deleteItem={deleteExpense}
       />
-      <ExpenseTable items={expense} />
     </>
   );
 };
