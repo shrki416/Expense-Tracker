@@ -1,7 +1,7 @@
 import React from "react";
 
-const ExpenseForm = ({ inputs, submit, change }) => {
-  const { name, type, amount, date } = inputs;
+const ExpenseForm = ({ inputs, change, submit }) => {
+  const { name, amount, type, date } = inputs;
 
   return (
     <form onSubmit={submit}>
