@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 import Header from "./Header";
@@ -11,13 +11,23 @@ const App = () => {
     amount: "",
   });
 
-  const [expense, setExpense] = useState([]);
-  const [check, setCheck] = useState(false);
+  // const savedExpenses = JSON.parse(localStorage.getItem("items"));
+  const ALL_EXPENSES = localStorage.getItem("expenses")
+    ? JSON.parse(localStorage.getItem("expenses"))
+    : [];
+  const [expense, setExpense] = useState(ALL_EXPENSES);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newExpense = { ...inputs };
     setExpense([...expense, newExpense]);
+    setInputs({
+      name: "",
+      type: "",
+      date: "",
+      amount: "",
+    });
+    localStorage.setItem("expenses", JSON.stringify(expense));
   };
 
   const onChange = (e) => {
@@ -28,12 +38,23 @@ const App = () => {
     const items = [...expense];
     const item = items[index];
     item.check = !item.check;
-    setCheck({ items });
   };
 
   const deleteExpense = () => {
-    console.log(`delete`);
+    const newExpenseList = expense.filter((expense) => !expense.check);
+    setExpense(newExpenseList);
   };
+
+  useEffect(() => {
+    const expenses = JSON.parse(localStorage.getItem("expenses"));
+    if (expenses) {
+      setExpense(expenses);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("expenses", JSON.stringify(expense));
+  }, [expense]);
 
   return (
     <>
