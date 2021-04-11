@@ -11,10 +11,10 @@ const App = () => {
     amount: "",
   });
 
-  // const savedExpenses = JSON.parse(localStorage.getItem("items"));
   const ALL_EXPENSES = localStorage.getItem("expenses")
     ? JSON.parse(localStorage.getItem("expenses"))
     : [];
+
   const [expense, setExpense] = useState(ALL_EXPENSES);
 
   const handleSubmit = (e) => {
