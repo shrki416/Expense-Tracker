@@ -47,9 +47,7 @@ const App = () => {
 
   useEffect(() => {
     const expenses = JSON.parse(localStorage.getItem("expenses"));
-    if (expenses) {
-      setExpense(expenses);
-    }
+    expenses && setExpense(expenses);
   }, []);
 
   useEffect(() => {
