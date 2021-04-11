@@ -1,11 +1,6 @@
 import React from "react";
 
 function ExpenseTable({ items, deleteItem, checkedItem }) {
-  const formatDate = (date) => {
-    const newDate = new Date(date);
-    return Intl.DateTimeFormat("en-US").format(newDate);
-  };
-
   const formatAmount = (amount) => (amount = parseFloat(amount).toFixed(2));
 
   const rows = items.map(({ name, type, date, amount, checked }, index) => (
@@ -19,7 +14,7 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
       </td>
       <td> {type} </td>
       <td> {name} </td>
-      <td> {formatDate(date)} </td>
+      <td> {date} </td>
       <td> $ {formatAmount(amount)} </td>
     </tr>
   ));
