@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 export default function Header() {
   return (
-    <div className="header">
+    <div>
       <h1>Expense Tracker</h1>
       <p>A simple expense tracker application</p>
     </div>
-  )
+  );
 }
