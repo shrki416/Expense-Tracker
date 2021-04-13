@@ -1,7 +1,7 @@
 import React from "react";
 
 function ExpenseTable({ items, deleteItem, checkedItem }) {
-  const formatAmount = (amount) => (amount = parseFloat(amount).toFixed(2));
+  const formatAmount = (amount) => (parseFloat(amount).toFixed(2));
 
   const rows = items.map(({ name, type, date, amount, checked }, index) => (
     <tr key={`${name}_${index}`}>
