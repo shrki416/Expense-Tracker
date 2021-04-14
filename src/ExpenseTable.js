@@ -1,14 +1,22 @@
+import { Button } from "@material-ui/core";
+import Checkbox from "@material-ui/core/Checkbox";
 import React from "react";
 
 function ExpenseTable({ items, deleteItem, checkedItem }) {
-  const formatAmount = (amount) => (parseFloat(amount).toFixed(2));
+  const formatAmount = (amount) => parseFloat(amount).toFixed(2);
 
   const rows = items.map(({ name, type, date, amount, checked }, index) => (
     <tr key={`${name}_${index}`}>
       <td>
-        <input
+        {/* <input
           type="checkbox"
           checked={checked}
+          onChange={() => checkedItem(index)}
+        /> */}
+        <Checkbox
+          checked={checked}
+          color="primary"
+          inputProps={{ "aria-label": "secondary checkbox" }}
           onChange={() => checkedItem(index)}
         />
       </td>
@@ -26,7 +34,11 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
         <tbody>
           <tr>
             <th>
-              <input type="checkbox" />
+              <Checkbox
+                disabled
+                checked
+                inputProps={{ "aria-label": "disabled checked checkbox" }}
+              />
             </th>
             <th>Type</th>
             <th>Name</th>
@@ -36,14 +48,22 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
           {rows}
         </tbody>
       </table>
-      <button
+      {/* <button
         className="expense-form-btn"
         type="button"
         value="submit"
         onClick={deleteItem}
       >
         Delete Expense
-      </button>
+      </button> */}
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={deleteItem}
+        type="button"
+      >
+        Delete Expense
+      </Button>
     </div>
   );
 }
