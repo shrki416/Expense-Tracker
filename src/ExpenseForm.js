@@ -1,34 +1,45 @@
-import { Button } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-
 import React from "react";
+import { Button, TextField, Grid, makeStyles } from "@material-ui/core";
+import SendIcon from "@material-ui/icons/Send";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "30ch",
+    },
+  },
+}));
 
 const ExpenseForm = ({ inputs, change, submit }) => {
   const { name, amount, type, date } = inputs;
 
+  const classes = useStyles();
+
   return (
-    <Grid>
-      <form onSubmit={submit}>
-        <div className="expense-form">
+    <Grid container justify="space-around">
+      <form onSubmit={submit} className={classes.root}>
+        <div flexDirection="row">
           <div>
             <h2>Expense Form</h2>
           </div>
           <div>
-            <div className="expense-name">
-              <label>Expense Name:</label>
-              <div>
-                <input
-                  name="name"
-                  type="text"
-                  placeholder="Name Goes Here"
-                  value={name}
-                  onChange={(e) => change(e)}
-                  required="required"
-                />
-              </div>
+            <div>
+              <TextField
+                id="outlined-basic"
+                label="Expense Name"
+                variant="outlined"
+                name="name"
+                type="text"
+                value={name}
+                onChange={(e) => change(e)}
+                required="required"
+                size="small"
+              />
             </div>
-            <div className="expense-type">
+            <div>
               <label>Payment Method: </label>
+
               <select
                 required="required"
                 name="type"
@@ -41,7 +52,7 @@ const ExpenseForm = ({ inputs, change, submit }) => {
                 <option value="debit-card">Debit Card</option>
               </select>
             </div>
-            <div className="expense-date">
+            <div>
               <label>Transaction Date:</label>
               <div>
                 <input
@@ -53,25 +64,27 @@ const ExpenseForm = ({ inputs, change, submit }) => {
                 />
               </div>
             </div>
-            <div className="expense-amount">
-              <label>Amount: </label>
-              <div>
-                <input
-                  required="required"
-                  name="amount"
-                  type="number"
-                  value={amount}
-                  onChange={(e) => change(e)}
-                  placeholder="Amount Goes Here"
-                />
-              </div>
+            <div>
+              <TextField
+                id="outlined-basic"
+                label="Expense Amount"
+                variant="outlined"
+                name="amount"
+                type="number"
+                value={amount}
+                onChange={(e) => change(e)}
+                required="required"
+                size="small"
+              />
             </div>
           </div>
           <div>
-            {/* <button className="expense-form-btn" type="submit" value="submit">
-            Add Expense
-          </button> */}
-            <Button variant="contained" color="primary" type="submit">
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              endIcon={<SendIcon />}
+            >
               Add Expense
             </Button>
           </div>
