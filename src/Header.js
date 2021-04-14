@@ -1,10 +1,14 @@
 import React from "react";
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
 
 export default function Header() {
   return (
     <div>
-      <h1>Expense Tracker</h1>
-      <p>A simple expense tracker application</p>
+      <AppBar>
+        <Toolbar>
+          <Typography variant="h6">Expense Tracker</Typography>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 }
