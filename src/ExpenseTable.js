@@ -1,70 +1,67 @@
-import { Button } from "@material-ui/core";
-import Checkbox from "@material-ui/core/Checkbox";
 import React from "react";
+import {
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Checkbox,
+} from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 function ExpenseTable({ items, deleteItem, checkedItem }) {
   const formatAmount = (amount) => parseFloat(amount).toFixed(2);
 
   const rows = items.map(({ name, type, date, amount, checked }, index) => (
-    <tr key={`${name}_${index}`}>
-      <td>
-        {/* <input
-          type="checkbox"
-          checked={checked}
-          onChange={() => checkedItem(index)}
-        /> */}
+    <TableRow key={`${name}_${index}`}>
+      <TableCell>
         <Checkbox
           checked={checked}
           color="primary"
           inputProps={{ "aria-label": "secondary checkbox" }}
           onChange={() => checkedItem(index)}
         />
-      </td>
-      <td> {type} </td>
-      <td> {name} </td>
-      <td> {date} </td>
-      <td> $ {formatAmount(amount)} </td>
-    </tr>
+      </TableCell>
+      <TableCell> {type} </TableCell>
+      <TableCell> {name} </TableCell>
+      <TableCell> {date} </TableCell>
+      <TableCell> ${formatAmount(amount)} </TableCell>
+    </TableRow>
   ));
 
   return (
-    <div className="expense-table">
+    <TableContainer>
       <h2>Expense Table</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th>
+      <Table size="small" aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <TableCell>
               <Checkbox
                 disabled
                 checked
                 inputProps={{ "aria-label": "disabled checked checkbox" }}
               />
-            </th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Amount</th>
-          </tr>
-          {rows}
-        </tbody>
-      </table>
-      {/* <button
-        className="expense-form-btn"
-        type="button"
-        value="submit"
-        onClick={deleteItem}
-      >
-        Delete Expense
-      </button> */}
+            </TableCell>
+            <TableCell>Type</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell>Date</TableCell>
+            <TableCell>Amount</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>{rows}</TableBody>
+      </Table>
       <Button
         variant="contained"
         color="secondary"
         onClick={deleteItem}
         type="button"
+        startIcon={<DeleteIcon />}
       >
         Delete Expense
       </Button>
-    </div>
+    </TableContainer>
   );
 }
 
