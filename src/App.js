@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 import Header from "./Header";
-import Container from "@material-ui/core/Container";
+import { Container } from "@material-ui/core";
+import "./App.css";
 
 const App = () => {
   const [inputs, setInputs] = useState({
@@ -56,15 +57,17 @@ const App = () => {
   }, [expense]);
 
   return (
-    <Container>
-      <Header />
-      <ExpenseForm submit={handleSubmit} inputs={inputs} change={onChange} />
-      <ExpenseTable
-        items={expense}
-        checkedItem={handleCheck}
-        deleteItem={deleteExpense}
-      />
-    </Container>
+    <div className="App">
+      <Container maxWidth="lg">
+        <Header />
+        <ExpenseForm submit={handleSubmit} inputs={inputs} change={onChange} />
+        <ExpenseTable
+          items={expense}
+          checkedItem={handleCheck}
+          deleteItem={deleteExpense}
+        />
+      </Container>
+    </div>
   );
 };
 
