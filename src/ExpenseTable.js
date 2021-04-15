@@ -8,10 +8,21 @@ import {
   TableHead,
   TableRow,
   Checkbox,
+  makeStyles,
+  Typography,
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
+import SaveIcon from "@material-ui/icons/Save";
+
+const useStyles = makeStyles({
+  root: {
+    marginTop: "2em",
+  },
+});
 
 function ExpenseTable({ items, deleteItem, checkedItem }) {
+  const classes = useStyles();
+
   const formatAmount = (amount) => parseFloat(amount).toFixed(2);
 
   const rows = items.map(({ name, type, date, amount, checked }, index) => (
@@ -20,6 +31,8 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
         <Checkbox
           checked={checked}
           color="primary"
+          checkedIcon={<DeleteIcon />}
+          icon={<SaveIcon />}
           inputProps={{ "aria-label": "secondary checkbox" }}
           onChange={() => checkedItem(index)}
         />
@@ -33,7 +46,7 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
 
   return (
     <TableContainer>
-      <h2>Expense Table</h2>
+      <Typography variant="h5">Expense Table</Typography>
       <Table size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -53,6 +66,7 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
         <TableBody>{rows}</TableBody>
       </Table>
       <Button
+        className={classes.root}
         variant="contained"
         color="secondary"
         onClick={deleteItem}
