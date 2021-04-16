@@ -1,22 +1,26 @@
 import React from "react";
-import {
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Checkbox,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Checkbox from "@material-ui/core/Checkbox";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import DeleteIcon from "@material-ui/icons/Delete";
-import SaveIcon from "@material-ui/icons/Save";
+import Paper from "@material-ui/core/Paper";
+import TableContainer from "@material-ui/core/TableContainer";
 
 const useStyles = makeStyles({
   root: {
     marginTop: "2em",
+    table: {
+      minWidth: 650,
+    },
+    container: {
+      maxHeight: 440,
+    },
   },
 });
 
@@ -27,7 +31,6 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
   const formatDate = (date) => {
     const newDate = new Date(date.replace(/-/g, "/"));
     return new Intl.DateTimeFormat("en-US").format(newDate);
-    // return newDate.toLocaleDateString("en-US");
   };
 
   const rows = items.map(({ name, type, date, amount, checked }, index) => (
@@ -37,7 +40,6 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
           checked={checked}
           color="primary"
           checkedIcon={<DeleteIcon />}
-          icon={<SaveIcon />}
           inputProps={{ "aria-label": "secondary checkbox" }}
           onChange={() => checkedItem(index)}
         />
@@ -50,26 +52,33 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
   ));
 
   return (
-    <TableContainer>
+    <>
       <Typography variant="h5">Expense Table</Typography>
-      <Table size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell>
-              <Checkbox
-                disabled
-                checked
-                inputProps={{ "aria-label": "disabled checked checkbox" }}
-              />
-            </TableCell>
-            <TableCell>Type</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Date</TableCell>
-            <TableCell>Amount</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>{rows}</TableBody>
-      </Table>
+      <TableContainer component={Paper}>
+        <Table
+          size="small"
+          aria-label="expense table"
+          className={classes.table}
+          stickyHeader
+        >
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                <Checkbox
+                  disabled
+                  checked
+                  inputProps={{ "aria-label": "disabled checked checkbox" }}
+                />
+              </TableCell>
+              <TableCell>Type</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Date</TableCell>
+              <TableCell>Amount</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>{rows}</TableBody>
+        </Table>
+      </TableContainer>
       <Button
         className={classes.root}
         variant="contained"
@@ -80,7 +89,7 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
       >
         Delete Expense
       </Button>
-    </TableContainer>
+    </>
   );
 }
 
