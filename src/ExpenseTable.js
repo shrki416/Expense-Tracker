@@ -18,9 +18,12 @@ const useStyles = makeStyles({
     table: {
       minWidth: 650,
     },
-    container: {
-      maxHeight: 440,
-    },
+  },
+  heading: {
+    marginBottom: "2rem",
+  },
+  container: {
+    maxHeight: 440,
   },
 });
 
@@ -53,32 +56,36 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
 
   return (
     <>
-      <Typography variant="h5">Expense Table</Typography>
-      <TableContainer component={Paper}>
-        <Table
-          size="small"
-          aria-label="expense table"
-          className={classes.table}
-          stickyHeader
-        >
-          <TableHead>
-            <TableRow>
-              <TableCell>
-                <Checkbox
-                  disabled
-                  checked
-                  inputProps={{ "aria-label": "disabled checked checkbox" }}
-                />
-              </TableCell>
-              <TableCell>Type</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Date</TableCell>
-              <TableCell>Amount</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>{rows}</TableBody>
-        </Table>
-      </TableContainer>
+      <Typography variant="h5" className={classes.heading}>
+        Expense Table
+      </Typography>
+      <Paper elevation={10}>
+        <TableContainer>
+          <Table
+            size="small"
+            aria-label="expense table"
+            className={classes.table}
+            stickyHeader
+          >
+            <TableHead>
+              <TableRow>
+                <TableCell>
+                  <Checkbox
+                    disabled
+                    checked
+                    inputProps={{ "aria-label": "disabled checked checkbox" }}
+                  />
+                </TableCell>
+                <TableCell>Type</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Date</TableCell>
+                <TableCell>Amount</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>{rows}</TableBody>
+          </Table>
+        </TableContainer>
+      </Paper>
       <Button
         className={classes.root}
         variant="contained"
