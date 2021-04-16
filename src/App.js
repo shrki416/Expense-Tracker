@@ -1,9 +1,25 @@
 import React, { useState, useEffect } from "react";
+
 import ExpenseForm from "./ExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 import Header from "./Header";
-import { Container } from "@material-ui/core";
+
+import Container from "@material-ui/core/Container";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
+import Paper from "@material-ui/core/Paper";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import {
+  ThemeProvider,
+  createMuiTheme,
+  makeStyles,
+} from "@material-ui/core/styles";
+
 import "./App.css";
+
+const ALL_EXPENSES = localStorage.getItem("expenses")
+  ? JSON.parse(localStorage.getItem("expenses"))
+  : [];
 
 const App = () => {
   const [inputs, setInputs] = useState({
@@ -13,11 +29,30 @@ const App = () => {
     amount: "",
   });
 
-  const ALL_EXPENSES = localStorage.getItem("expenses")
-    ? JSON.parse(localStorage.getItem("expenses"))
-    : [];
-
   const [expense, setExpense] = useState(ALL_EXPENSES);
+  const [theme, setTheme] = useState(true);
+
+  const useStyles = makeStyles({
+    paper: {
+      height: "100vh",
+    },
+  });
+
+  const darkTheme = createMuiTheme({
+    palette: {
+      type: "dark",
+    },
+  });
+
+  const lightTheme = createMuiTheme({
+    palette: {
+      type: "light",
+    },
+  });
+
+  const toggleTheme = createMuiTheme(theme ? lightTheme : darkTheme);
+  const icon = !theme ? <Brightness7Icon /> : <Brightness4Icon />;
+  const classes = useStyles();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +66,8 @@ const App = () => {
     });
     localStorage.setItem("expenses", JSON.stringify(expense));
   };
+
+  const handleThemeChange = () => setTheme(!theme);
 
   const onChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -58,15 +95,24 @@ const App = () => {
 
   return (
     <div className="App">
-      <Container maxWidth="lg">
-        <Header />
-        <ExpenseForm submit={handleSubmit} inputs={inputs} change={onChange} />
-        <ExpenseTable
-          items={expense}
-          checkedItem={handleCheck}
-          deleteItem={deleteExpense}
-        />
-      </Container>
+      <CssBaseline />
+      <ThemeProvider theme={toggleTheme}>
+        <Paper className={classes.paper}>
+          <Container maxWidth="lg">
+            <Header icon={icon} change={handleThemeChange} theme={theme} />
+            <ExpenseForm
+              submit={handleSubmit}
+              inputs={inputs}
+              change={onChange}
+            />
+            <ExpenseTable
+              items={expense}
+              checkedItem={handleCheck}
+              deleteItem={deleteExpense}
+            />
+          </Container>
+        </Paper>
+      </ThemeProvider>
     </div>
   );
 };
