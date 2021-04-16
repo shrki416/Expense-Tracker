@@ -1,12 +1,10 @@
 import React from "react";
-import {
-  Button,
-  TextField,
-  Grid,
-  makeStyles,
-  Typography,
-  MenuItem,
-} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import MenuItem from "@material-ui/core/MenuItem";
+import { makeStyles } from "@material-ui/core/styles";
 import SendIcon from "@material-ui/icons/Send";
 
 const useStyles = makeStyles((theme) => ({
@@ -52,13 +50,13 @@ const ExpenseForm = ({ inputs, change, submit }) => {
             variant="outlined"
             size="small"
           >
-            <MenuItem value="cash">Cash</MenuItem>
-            <MenuItem value="credit-card">Credit-Card</MenuItem>
-            <MenuItem value="debit-card">Debit-Card</MenuItem>
-            <MenuItem value="apple-pay">Apple Pay</MenuItem>
-            <MenuItem value="google-pay">Google Pay</MenuItem>
+            <MenuItem value="Cash">Cash</MenuItem>
+            <MenuItem value="Credit Card">Credit Card</MenuItem>
+            <MenuItem value="Debit Card">Debit Card</MenuItem>
+            <MenuItem value="Apple Pay">Apple Pay</MenuItem>
+            <MenuItem value="Google Pay">Google Pay</MenuItem>
             <MenuItem value="Venmo">Venmo</MenuItem>
-            <MenuItem value="pay-pal">PayPal</MenuItem>
+            <MenuItem value="PayPal">PayPal</MenuItem>
           </TextField>
         </Grid>
 
