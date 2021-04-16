@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
       width: "30ch",
     },
   },
+  heading: {
+    marginBottom: "2rem",
+  },
 }));
 
 const ExpenseForm = ({ inputs, change, submit }) => {
@@ -23,7 +26,12 @@ const ExpenseForm = ({ inputs, change, submit }) => {
 
   return (
     <form onSubmit={submit} className={classes.root}>
-      <Typography variant="h5">Expense Form</Typography>
+      <Typography variant="h2" className={classes.heading}>
+        Expense Tracker
+      </Typography>
+      <Typography variant="h5" className={classes.heading}>
+        Expense Form
+      </Typography>
       <Grid container alignItems="center" justify="center">
         <Grid item>
           <TextField
