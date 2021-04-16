@@ -24,6 +24,11 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
   const classes = useStyles();
 
   const formatAmount = (amount) => parseFloat(amount).toFixed(2);
+  const formatDate = (date) => {
+    const newDate = new Date(date.replace(/-/g, "/"));
+    return new Intl.DateTimeFormat("en-US").format(newDate);
+    // return newDate.toLocaleDateString("en-US");
+  };
 
   const rows = items.map(({ name, type, date, amount, checked }, index) => (
     <TableRow key={`${name}_${index}`}>
@@ -39,7 +44,7 @@ function ExpenseTable({ items, deleteItem, checkedItem }) {
       </TableCell>
       <TableCell> {type} </TableCell>
       <TableCell> {name} </TableCell>
-      <TableCell> {date} </TableCell>
+      <TableCell> {formatDate(date)} </TableCell>
       <TableCell> ${formatAmount(amount)} </TableCell>
     </TableRow>
   ));
