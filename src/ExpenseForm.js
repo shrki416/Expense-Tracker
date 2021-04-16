@@ -5,6 +5,7 @@ import {
   Grid,
   makeStyles,
   Typography,
+  MenuItem,
 } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
@@ -41,19 +42,24 @@ const ExpenseForm = ({ inputs, change, submit }) => {
         </Grid>
 
         <Grid item>
-          <label>Payment Method: </label>
-
-          <select
-            required="required"
+          <TextField
+            id="outlined-select-currency"
+            select
+            label="Payment Method"
             name="type"
             value={type}
             onChange={(e) => change(e)}
+            variant="outlined"
+            size="small"
           >
-            <option value="cash">Cash</option>
-            <option value="check">Check</option>
-            <option value="credit-card">Credit Card</option>
-            <option value="debit-card">Debit Card</option>
-          </select>
+            <MenuItem value="cash">Cash</MenuItem>
+            <MenuItem value="credit-card">Credit-Card</MenuItem>
+            <MenuItem value="debit-card">Debit-Card</MenuItem>
+            <MenuItem value="apple-pay">Apple Pay</MenuItem>
+            <MenuItem value="google-pay">Google Pay</MenuItem>
+            <MenuItem value="Venmo">Venmo</MenuItem>
+            <MenuItem value="pay-pal">PayPal</MenuItem>
+          </TextField>
         </Grid>
 
         <Grid item>
