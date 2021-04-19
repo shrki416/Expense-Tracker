@@ -35,4 +35,4 @@ This project is developed from scratch using **React** and **JavaScript**. This 
 
 ### Author
 
-- Ahmed Abdelaal - [Website](https://aa-dev.io/) | [LinkedIn](www.linkedin.com/in/aa-dev)
+- Ahmed Abdelaal - [Website](https://aa-dev.io/) | [LinkedIn](https://www.linkedin.com/in/aa-dev/)
