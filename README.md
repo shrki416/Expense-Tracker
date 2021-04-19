@@ -2,21 +2,7 @@
 
 Checkout the project [HERE](https://polar-sands-39515.herokuapp.com/)
 
-<!-- ![expense-tracker-image](./src/images/light.png)
-![expense-tracker-image](./src/images/dark.png) -->
-
-![expense-tracker-gif](./src/images/expense-tracker.gif)
-
-<!-- <br />
-![javascript](./src/images/javaScript_Icon.png)
-![html5_logo](./src/images/html5_icon.png)
-![css3_logo](./src/images/css3_icon.png)
-![react_logo](./src/images/react_icon.png)
-![heroku_logo](./src/images/heroku_icon.png)
-![git_logo](./src/images/git_icon.png)
-![github_logo](./src/images/github_icon.png) -->
-
-<!-- --- -->
+![expense-tracker-gif](./src/assets/expense-tracker.gif)
 
 ## Description:
 
