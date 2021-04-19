@@ -35,4 +35,5 @@ This project is developed from scratch using **React** and **JavaScript**. This 
 
 ### Author
 
-- Ahmed Abdelaal - <a href="https://aa-dev.io/" target="_blank">Website</a> | <a href="https://www.linkedin.com/in/aa-dev/" target="_blank">LinkedIn</a>
+- Ahmed Abdelaal - <p><a href="https://aa-dev.io/" target="_blank" rel="noopener noreferrer">Website</a></p> | <p><a href="https://www.linkedin.com/in/aa-dev/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+<p>Check out <a href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer">freeCodeCamp</a>.</p>
