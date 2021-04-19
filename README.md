@@ -2,8 +2,10 @@
 
 Checkout the project [HERE](https://polar-sands-39515.herokuapp.com/)
 
-![expense-tracker-image](./src/images/light.png)
-![expense-tracker-image](./src/images/dark.png)
+<!-- ![expense-tracker-image](./src/images/light.png)
+![expense-tracker-image](./src/images/dark.png) -->
+
+![expense-tracker-gif](./src/images/expense-tracker.gif)
 
 <!-- <br />
 ![javascript](./src/images/javaScript_Icon.png)
