@@ -17,10 +17,6 @@ import {
 
 import "./App.css";
 
-const ALL_EXPENSES = localStorage.getItem("expenses")
-  ? JSON.parse(localStorage.getItem("expenses"))
-  : [];
-
 const App = () => {
   const [inputs, setInputs] = useState({
     name: "",
@@ -29,7 +25,7 @@ const App = () => {
     amount: "",
   });
 
-  const [expense, setExpense] = useState(ALL_EXPENSES);
+  const [expense, setExpense] = useState([]);
   const [theme, setTheme] = useState(true);
 
   const useStyles = makeStyles({
@@ -49,6 +45,15 @@ const App = () => {
       type: "light",
     },
   });
+
+  useEffect(() => {
+    const expenses = JSON.parse(localStorage.getItem("expenses"));
+    expenses && setExpense(expenses);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("expenses", JSON.stringify(expense));
+  }, [expense]);
 
   const toggleTheme = createMuiTheme(theme ? lightTheme : darkTheme);
   const icon = !theme ? <Brightness7Icon /> : <Brightness4Icon />;
@@ -70,7 +75,8 @@ const App = () => {
   const handleThemeChange = () => setTheme(!theme);
 
   const onChange = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setInputs({ ...inputs, [name]: value });
   };
 
   const handleCheck = (index) => {
@@ -83,15 +89,6 @@ const App = () => {
     const newExpenseList = expense.filter((expense) => !expense.check);
     setExpense(newExpenseList);
   };
-
-  useEffect(() => {
-    const expenses = JSON.parse(localStorage.getItem("expenses"));
-    expenses && setExpense(expenses);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("expenses", JSON.stringify(expense));
-  }, [expense]);
 
   return (
     <div className="App">
