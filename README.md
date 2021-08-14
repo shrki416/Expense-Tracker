@@ -11,10 +11,10 @@ This project is developed from scratch using **React** and **JavaScript**. This 
 #### In this application, the user is able to:
 
 - Each expense includes:
-  - _date_
-  - _description_
-  - _amount_
-  - _transaction type_
+  - date
+  - description
+  - amount
+  - transaction type
 - Add expense(s) to table
 - Delete expense(s) from table
 - LocalStorage is used to persist the returned data
