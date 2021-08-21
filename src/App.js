@@ -9,9 +9,9 @@ import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Brightness7Icon from "@material-ui/icons/Brightness7";
 import Paper from "@material-ui/core/Paper";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import createMuiTheme from '@material-ui/core/styles';
-import makeStyles from '@material-ui/core/styles';
-import ThemeProvider from '@material-ui/core/styles';
+import createMuiTheme from "@material-ui/core/styles";
+import makeStyles from "@material-ui/core/styles";
+import ThemeProvider from "@material-ui/core/styles";
 
 import "./App.css";
 
@@ -73,8 +73,7 @@ const App = () => {
   const handleThemeChange = () => setTheme(!theme);
 
   const onChange = (e) => {
-    const { name, value } = e.target;
-    setInputs({ ...inputs, [name]: value });
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
   const handleCheck = (index) => {

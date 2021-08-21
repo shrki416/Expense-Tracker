@@ -87,6 +87,7 @@ const ExpenseForm = ({ inputs, change, submit }) => {
             variant="outlined"
             name="amount"
             type="number"
+            min="0"
             value={amount}
             onChange={(e) => change(e)}
             required
