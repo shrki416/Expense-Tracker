@@ -32,7 +32,7 @@ const ExpenseForm = ({ inputs, change, submit }) => {
       <Typography variant="h5" className={classes.heading}>
         Expense Form
       </Typography>
-      <Grid container alignItems="center" justify="center">
+      <Grid container alignItems="center" justifyContent="center">
         <Grid item>
           <TextField
             id="outlined-basic"
