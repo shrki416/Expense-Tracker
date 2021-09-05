@@ -9,9 +9,11 @@ import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Brightness7Icon from "@material-ui/icons/Brightness7";
 import Paper from "@material-ui/core/Paper";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import createMuiTheme from "@material-ui/core/styles";
-import makeStyles from "@material-ui/core/styles";
-import ThemeProvider from "@material-ui/core/styles";
+import {
+  createTheme,
+  makeStyles,
+  ThemeProvider,
+} from "@material-ui/core/styles";
 
 import "./App.css";
 
@@ -32,13 +34,13 @@ const App = () => {
     },
   });
 
-  const darkTheme = createMuiTheme({
+  const darkTheme = createTheme({
     palette: {
       type: "dark",
     },
   });
 
-  const lightTheme = createMuiTheme({
+  const lightTheme = createTheme({
     palette: {
       type: "light",
     },
@@ -53,7 +55,7 @@ const App = () => {
     localStorage.setItem("expenses", JSON.stringify(expense));
   }, [expense]);
 
-  const toggleTheme = createMuiTheme(theme ? lightTheme : darkTheme);
+  const toggleTheme = createTheme(theme ? lightTheme : darkTheme);
   const icon = !theme ? <Brightness7Icon /> : <Brightness4Icon />;
   const classes = useStyles();
 
